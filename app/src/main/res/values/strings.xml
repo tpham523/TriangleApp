@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Triangle App</string>
+    <string name="title" >Input the length of the three sides</string>
     <string name="side_name1">Side 1</string>
     <string name="side_name2">Side 2</string>
     <string name="side_name3">Side 3</string>
+    <string name="button_name1">Calculate</string>
+    <string name="button_name2">Exit</string>
 </resources>
