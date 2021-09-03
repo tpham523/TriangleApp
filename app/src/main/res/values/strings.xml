@@ -5,5 +5,5 @@
     <string name="side_name2">Side 2</string>
     <string name="side_name3">Side 3</string>
     <string name="button_name1">Calculate</string>
-    <string name="button_name2">Exit</string>
+    <string name="button_name2">Clear</string>
 </resources>
