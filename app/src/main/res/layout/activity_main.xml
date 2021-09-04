@@ -4,57 +4,157 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B2CCCC"
     tools:context=".MainActivity">
 
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="132dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:text="@string/button_name2"
+        app:layout_constraintEnd_toStartOf="@+id/calButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result" />
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="233dp"
-        android:layout_height="52dp"
-        android:text="Input the length of the three sides"
+        android:id="@+id/inputLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/title"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.561"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintVertical_bias="0.079" />
 
-    <EditText
-        android:id="@+id/editTextSide1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+    <TextView
+        android:id="@+id/side1Label"
+        android:layout_width="138dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:gravity="center"
         android:text="@string/side_name1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/inputSide1"
+        app:layout_constraintHorizontal_bias="0.568"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/inputLabel" />
 
-    <EditText
-        android:id="@+id/editTextSide2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+    <TextView
+        android:id="@+id/side2Label"
+        android:layout_width="138dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:gravity="center"
         android:text="@string/side_name2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/inputSide2"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSide1" />
+        app:layout_constraintTop_toBottomOf="@+id/side1Label" />
+
+
+    <TextView
+        android:id="@+id/side3Label"
+        android:layout_width="138dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:gravity="center"
+        android:text="@string/side_name3"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/inputSide2"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/side2Label" />
+
+
 
     <EditText
-        android:id="@+id/editTextSide3"
+        android:id="@+id/inputSide1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/side_name3"
+        android:gravity="center"
+        android:hint="@string/side_hint"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintTop_toBottomOf="@+id/inputLabel" />
+
+    <EditText
+        android:id="@+id/inputSide2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/side_hint"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputSide1" />
+
+    <EditText
+        android:id="@+id/inputSide3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/side_hint"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputSide2" />
+
+    <Button
+        android:id="@+id/calButton"
+        android:layout_width="132dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:text="@string/button_name1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="285dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSide2" />
+        app:layout_constraintTop_toBottomOf="@+id/inputSide3" />
+
+    <ImageView
+        android:id="@+id/triangleImage"
+        android:layout_width="220dp"
+        android:layout_height="159dp"
+        app:layout_constraintEnd_toEndOf="@+id/result"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/result"
+        app:layout_constraintTop_toTopOf="@+id/result"
+        app:srcCompat="@drawable/triangle_img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
