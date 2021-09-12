@@ -97,7 +97,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/side_hint"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputLabel" />
 
@@ -111,7 +111,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/side_hint"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputSide1" />
 
@@ -125,7 +125,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/side_hint"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputSide2" />
 
