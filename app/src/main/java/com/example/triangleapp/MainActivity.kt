@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
     // algorithm to find the triangle types
     private fun check_range(value: Float): Boolean {
-        if (value >= 1 && value <= 200) {
+        if (value >= 1 && value <= 100) {
             return true
         }
         return false
