@@ -1,10 +1,9 @@
 package com.example.triangleapp
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +17,9 @@ class MainActivity : AppCompatActivity() {
 
     //  create a textWatcher member
     private val mTextWatcher: TextWatcher = object : TextWatcher {
-        override fun beforeTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {}
+        override fun beforeTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {
+
+        }
         override fun onTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {}
         override fun afterTextChanged(editable: Editable) {
             // check Fields For Empty Values
@@ -29,12 +30,14 @@ class MainActivity : AppCompatActivity() {
     fun checkFieldsForEmptyValues() {
         val b: Button = findViewById(R.id.calButton)
 
-        val s1 = side1Length.text.toString()
-        val s2 = side2Length.text.toString()
-        val s3 = side3Length.text.toString()
+        var s1 = side1Length.text.toString()
+        var s2 = side2Length.text.toString()
+        var s3 = side3Length.text.toString()
+
 
         b.isEnabled = !(s1 == "" || s2 == "" || s3 == "")
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,21 +46,37 @@ class MainActivity : AppCompatActivity() {
         val calculateButton: Button = findViewById(R.id.calButton)
         val clearButton: Button = findViewById(R.id.clearButton)
 
+        calculateButton.isEnabled = false
+
         side1Length = findViewById(R.id.inputSide1)
         side2Length = findViewById(R.id.inputSide2)
         side3Length = findViewById(R.id.inputSide3)
 
-        calculateButton.setOnClickListener{
 
-            findTriangleType(side1Length.text.toString().toFloat(),
-                    side2Length.text.toString().toFloat(),
-                    side3Length.text.toString().toFloat())
+
+        calculateButton.setOnClickListener{
+            val side1Len: Float = side1Length.text.toString().toFloat()
+            val side2Len: Float = side2Length.text.toString().toFloat()
+            val side3Len: Float = side3Length.text.toString().toFloat()
+
+            val s1: Boolean = check_range(side1Len)
+            val s2: Boolean = check_range(side2Len)
+            val s3: Boolean = check_range(side3Len)
+
+            if ( s1 && s2 && s3 )
+                findTriangleType(side1Len, side2Len, side3Len)
+            else {
+                    Toast.makeText(getApplicationContext(), "Input values out of bound! " + "Only 0-100 accepted.", Toast.LENGTH_SHORT).show();
+            }
+
         }
 
         clearButton.setOnClickListener{
             side1Length.text.clear()
             side2Length.text.clear()
             side3Length.text.clear()
+            val triangleImg: ImageView = findViewById(R.id.triangleImage)
+            triangleImg.visibility = View.VISIBLE
         }
 
         side1Length.addTextChangedListener(mTextWatcher)
@@ -68,9 +87,10 @@ class MainActivity : AppCompatActivity() {
 
     // algorithm to find the triangle types
     private fun check_range(value: Float): Boolean {
-        if (value >= 1 && value <= 200) {
+        if (value >= 1 && value <= 100) {
             return true
         }
+
         return false
     }
 
@@ -113,4 +133,6 @@ class MainActivity : AppCompatActivity() {
             resultText.text = "Not A Triangle!"
     }
 }
+
+
 
