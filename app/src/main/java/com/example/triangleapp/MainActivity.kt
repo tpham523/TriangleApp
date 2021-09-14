@@ -17,9 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     //  create a textWatcher member
     private val mTextWatcher: TextWatcher = object : TextWatcher {
-        override fun beforeTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {
-
-        }
+        override fun beforeTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {}
         override fun onTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {}
         override fun afterTextChanged(editable: Editable) {
             // check Fields For Empty Values
@@ -46,14 +44,14 @@ class MainActivity : AppCompatActivity() {
         val calculateButton: Button = findViewById(R.id.calButton)
         val clearButton: Button = findViewById(R.id.clearButton)
 
+        // calculate Button is disabled by default
         calculateButton.isEnabled = false
 
         side1Length = findViewById(R.id.inputSide1)
         side2Length = findViewById(R.id.inputSide2)
         side3Length = findViewById(R.id.inputSide3)
 
-
-
+        // listen to events from calculate button
         calculateButton.setOnClickListener{
             val side1Len: Float = side1Length.text.toString().toFloat()
             val side2Len: Float = side2Length.text.toString().toFloat()
@@ -63,12 +61,14 @@ class MainActivity : AppCompatActivity() {
             val s2: Boolean = check_range(side2Len)
             val s3: Boolean = check_range(side3Len)
 
+            // find the type of the triangle after validating all 3 sides
             if ( s1 && s2 && s3 )
                 findTriangleType(side1Len, side2Len, side3Len)
             else {
-                    Toast.makeText(getApplicationContext(), "Input values out of bound! " + "Only 0-100 accepted.", Toast.LENGTH_SHORT).show();
+                // alert when one of the values is out of range
+                Toast.makeText(getApplicationContext(), "Input values out of bound! "
+                        + "Only 0-100 accepted.", Toast.LENGTH_SHORT).show();
             }
-
         }
 
         clearButton.setOnClickListener{
@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
             triangleImg.visibility = View.VISIBLE
         }
 
+        // listen for events that may leave the inputs empty
         side1Length.addTextChangedListener(mTextWatcher)
         side2Length.addTextChangedListener(mTextWatcher)
         side3Length.addTextChangedListener(mTextWatcher)
